@@ -17,15 +17,22 @@ yargs.command({
             }
     },
     handler: function(argv){
-        notes.addNotes(argv.title, argv.body);
+        notes.addNote(argv.title, argv.body);
     }
 })
 
 yargs.command({
     command:'remove',
     describe: 'retire une note',
-    handler: function(){
-        console.log('Je viens de retirer une note');
+    builder:{
+        title:{
+            describe:'Titre de la note à supprimer',
+            demandOption:true,
+            type:'string'
+        }
+    },
+    handler: function(argv){
+        notes.removeNote (argv.title);
     }
 })
 

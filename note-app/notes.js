@@ -6,7 +6,7 @@ const getNotes = function () {
     return "votre note :"
 }
 
-const addNotes = function(title, body ) {
+const addNote = function(title, body ){
     const notes = loadNotes();
     const checkTitle = notes.filter(function (note){
         return note.title === title
@@ -23,8 +23,22 @@ const addNotes = function(title, body ) {
     else {
         console.log(chalk.red.inverse('ERROR:'), chalk.red('Titre déjà utilisé'))
     }
+}
 
+const removeNote = function(title){
+    const notes = loadNotes();
+    const checkTitle = notes.filter(function(note){
+        return note.title !== title;
+    })
+    if(checkTitle.length === notes.length){
+        console.log(chalk.red.inverse('ERROR:'), chalk.red('Aucun élément supprimé'))
+    }
+    else {
 
+        saveNotes(checkTitle);
+        console.log(chalk.green.inverse('INFO :'), chalk.green(`La note "${title}" à été supprimé de notes.json`))
+    }
+    
 
 }
 
@@ -46,5 +60,6 @@ const loadNotes = function(){
 
 module.exports = {
     getNotes: getNotes,
-    addNotes:addNotes,
+    addNote:addNote,
+    removeNote: removeNote,
 }
