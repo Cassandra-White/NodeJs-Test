@@ -1,10 +1,5 @@
-// const getNotes = require('./notes');
-const chalk = require('chalk');
-const { demandOption } = require('yargs');
-// const yargs = require('yargs/yargs')
-// const { hideBin } = require('yargs/helpers')
-
-const yargs = require('yargs')
+const yargs = require('yargs');
+const notes = require('./notes');
 
 yargs.command({
     command:'add',
@@ -22,7 +17,7 @@ yargs.command({
             }
     },
     handler: function(argv){
-        console.log(`\nVotre note : \n\tTitre : ${argv.title}\n\tContenu : ${argv.body}`);
+        notes.addNotes(argv.title, argv.body);
     }
 })
 
