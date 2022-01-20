@@ -1,14 +1,10 @@
 const chalk = require("chalk");
 const fs = require("fs");
 
-const getNotes = () =>  {
-  return "votre note :";
-};
-
 const addNote =  (title, body) => {
   const notes = loadNotes();
-  const checkTitle = notes.filter((note) => note.title === title);
-  if (checkTitle.length === 0) {
+  const checkTitle = notes.find((note) => note.title === title);
+  if (!checkTitle) {
     notes.push({
       title: title,
       body: body,
@@ -40,6 +36,28 @@ const removeNote = (title) => {
   }
 };
 
+const listNotes = ()=> {
+    const notes = loadNotes();
+    console.log(chalk.yellow('Vos notes :'));
+    notes.forEach(element => {
+        console.log("\t-",element.title);
+    });
+}
+
+const readNote = (title) => {
+    const notes = loadNotes();
+    const note = notes.find((note) => note.title === title);
+    debugger
+    if(note){
+        console.log(chalk.green.inverse("TROUVÉ !!"));
+        console.log(chalk.yellow("Titre :", note.title));
+        console.log("\t", note.body );
+
+    }
+    else
+        console.log(chalk.red("Aucun élément trouvé"));
+}
+
 const saveNotes = (notes) => {
   const notesJSON = JSON.stringify(notes);
   fs.writeFileSync("notes.json", notesJSON);
@@ -56,7 +74,8 @@ const loadNotes = () => {
 };
 
 module.exports = {
-  getNotes: getNotes,
   addNote: addNote,
   removeNote: removeNote,
+  listNotes: listNotes,
+  readNote:readNote,
 };
