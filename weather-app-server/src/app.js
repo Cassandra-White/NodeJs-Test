@@ -2,6 +2,8 @@ const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
 const { response } = require("express");
+const geoCode = require('./utils/geocode');
+const api = require('./utils/api');
 
 const app = express();
 
@@ -18,7 +20,6 @@ hbs.registerPartials(partialsPath);
 //Parmetres serveur static
 app.use(express.static(publicPath));
 
-
 //HOME
 app.get("", (request, response) => {
   response.render("index", {
@@ -26,7 +27,6 @@ app.get("", (request, response) => {
     creator: "Alex Kriss",
   });
 });
-
 
 //Contenu
 app.get("/about", (request, response) => {
@@ -43,16 +43,44 @@ app.get("/help", (request, response) => {
   });
 });
 
+// Retour Météo
+
 app.get("/weather", (request, response) => {
   if (!request.query.address)
     return response.send({
       error:
         "Vous devez fournir une address pour que nous puissions vous aider ",
     });
-  response.send({
-    forwar: "Paris",
-    weather: 23,
-    address: request.query.address
+
+  geoCode(request.query.address, (error, data = {}) => {
+    if (error !== undefined)return response.send({
+      error,
+    });
+
+    api(data, (error, weather, data) => {
+      if (error !== undefined)
+        return response.send({
+          error: "Error lors de la reception des données",
+        });
+      if (weather !== undefined) {
+        // console.log(weather);
+        return response.send({
+            location: data.location,
+            temperature: weather.temperature,
+            feelslike: weather.feelslike,
+            humidity: weather.humidity,
+            windSpeed: weather.wind_speed,
+            isDay: weather.is_day,
+            icon: weather.weather_icons[0]
+        });
+
+      }
+    });
+    // response.send({
+    //   forwar: "Paris",
+    //   weather: 23,
+    //   address: request.query.address,
+    // });
   });
 });
 

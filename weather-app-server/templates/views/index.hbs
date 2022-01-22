@@ -10,9 +10,30 @@
 </head>
 <body>
     <div class="main-content">
-    {{>header}}
-    <p>Trouvez la météo de l'instant !</p>
+        {{>header}}
+        <p>Trouvez la météo de l'instant !</p>
 
+        <form>
+            <input type="text" name="Adresse" id="" placeholder="Adresse">
+            <button>Rechercher</button>
+        </form>
+        <p id='message-error'></p>
+
+        <div id="card-weather">
+            <h3 id="message-resultat"></h3>
+            <img id="message-icon">
+            <p id='message-loading'></p>
+            <p id="message-location"></p>
+            <p id="message-temperature"></p>
+            <p id="message-feelslike"></p>
+            <p id="message-humidity"></p>
+            <p id="message-windSpeed"></p>
+            <p id="message-isDay"></p>
+        </div>
+        
+
+           
+        
     </div>
     
     

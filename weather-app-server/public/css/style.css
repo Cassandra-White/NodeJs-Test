@@ -38,9 +38,28 @@ header a {
     flex-grow: 1;
 }
 
+input {
+    border: 1px solid #cccccc;
+    padding: 8px
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid #888888;
+    background: #888888;
+    color: white;
+    padding: 8px;
+}
+
 footer {
     color: #888888;
     border-top: 0.01rem solid #eeeeee;
     margin-top: 2rem;
     padding-top: 2rem;
 }
+
+/* #card-weather {
+    border: 1px solid #000000;
+    width: fit-content;
+    padding: 2rem;
+} */
