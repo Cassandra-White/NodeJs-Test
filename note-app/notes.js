@@ -47,7 +47,6 @@ const listNotes = ()=> {
 const readNote = (title) => {
     const notes = loadNotes();
     const note = notes.find((note) => note.title === title);
-    debugger
     if(note){
         console.log(chalk.green.inverse("TROUVÉ !!"));
         console.log(chalk.yellow("Titre :", note.title));
