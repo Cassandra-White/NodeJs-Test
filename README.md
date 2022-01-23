@@ -15,7 +15,7 @@ NodeJs-Test sert de zone de test pour des applications et recherche sur NodeJs
 - 3 : [Weather app terminale](https://github.com/Cassandra-White/NodeJs-Test/tree/main/weather-app-server) :
       amelioration de weather-app, cette fois ci il est question d'afficher les données sur un site avec un rendu côté serveur 
       
-      ![Météo](https://github.com/Cassandra-White/NodeJs-Test/blob/main/weather-app-server/screenMe%CC%81te%CC%81oApp.png?raw=true) 
+     ![Météo](https://github.com/Cassandra-White/NodeJs-Test/blob/main/weather-app-server/screenMe%CC%81te%CC%81oApp.png?raw=true) 
 
 
 
