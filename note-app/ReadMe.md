@@ -68,6 +68,8 @@ node app.js --help [commande]
 
 ## Screen
 
-![Météo](https://github.com/Cassandra-White/NodeJs-Test/blob/main/weather-app/screenWeatherApp.png) 
+| ![ajouter](https://github.com/Cassandra-White/NodeJs-Test/blob/main/note-app/add.png?raw=true) | ![lister](https://github.com/Cassandra-White/NodeJs-Test/blob/main/note-app/list.png?raw=true) |
+| ------------ | ------------- |
+| ![lire](https://github.com/Cassandra-White/NodeJs-Test/blob/main/note-app/read.png?raw=true) | ![supprimer](https://github.com/Cassandra-White/NodeJs-Test/blob/main/note-app/delete.png?raw=true) |
+| ![help](https://github.com/Cassandra-White/NodeJs-Test/blob/main/note-app/help.png?raw=true) | 
  
-
