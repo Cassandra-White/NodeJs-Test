@@ -59,5 +59,5 @@ npm run start
 
 ## Screen
 
-| ![Météo](https://github.com/Cassandra-White/NodeJs-Test/blob/main/weather-app-server/screenMe%CC%81te%CC%81oApp.png) 
+![Météo](https://github.com/Cassandra-White/NodeJs-Test/blob/main/weather-app-server/screenMe%CC%81te%CC%81oApp.png) 
  
