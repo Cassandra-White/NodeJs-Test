@@ -44,6 +44,6 @@ node app.js --address="Une Adresse"
 
 ## Screen
 
-| ![Météo](https://github.com/Cassandra-White/NodeJs-Test/blob/main/weather-app/screenWeatherAppTerminal.png) 
+![Météo](https://github.com/Cassandra-White/NodeJs-Test/blob/main/weather-app/screenWeatherAppTerminal.png) 
  
 
