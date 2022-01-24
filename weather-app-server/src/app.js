@@ -5,7 +5,9 @@ const { response } = require("express");
 const geoCode = require('./utils/geocode');
 const api = require('./utils/api');
 
+
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 //DEFINITION DES PATH POUR CONFIG EXPRESS
 const publicPath = path.join(__dirname, "../public");
@@ -102,6 +104,6 @@ app.get("*", (request, response) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Le serveur vient de se lancer sur port 3000");
+app.listen(PORT, () => {
+  console.log("Le serveur vient de se lancer sur port ", PORT);
 });

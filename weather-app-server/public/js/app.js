@@ -1,27 +1,3 @@
-console.log("je suis un script");
-
-// fetch('http://puzzle.mead.io/puzzle').then((response) => {
-//     console.log("Premier passage");
-//     response.json().then((data) => {
-//         console.log(data);
-//     });
-// });
-
-// fetch("http://localhost:3000/weather?")
-//   .then((response) => {
-//     response
-//       .json()
-//       .then((data) => {
-//         console.log(data);
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//       });
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   });
-
 const weatherEventListner = document.querySelector("form");
 const messageError = document.querySelector("#message-error");
 const messageLoading = document.querySelector("#message-loading");
@@ -53,7 +29,7 @@ weatherEventListner.addEventListener("submit", (event) => {
     messageIcon.src = '';
 
   event.preventDefault();
-  fetch("http://localhost:3000/weather?address="+event.target[0].value+"")
+  fetch("/weather?address="+event.target[0].value+"")
     .then((response) => {
       response
         .json()
