@@ -45,11 +45,14 @@ router.patch("/tasks/:id", async (request, response) => {
     return response.status(400).send({ message: "Mauvaise requête" });
 
   try {
-    const task = await TaskModel.findByIdAndUpdate(
-      request.params.id,
-      request.body,
-      { new: true, runValidators: true }
-    );
+
+    const task = await TaskModel.findById(request.params.id); 
+    updateKeys.forEach((updateKey) => task[updateKey] = request.body[updateKey]);
+    // const task = await TaskModel.findByIdAndUpdate(
+    //   request.params.id,
+    //   request.body,
+    //   { new: true, runValidators: true }
+    // );
     if (!task)
       return response
         .status(404)

@@ -13,6 +13,18 @@ router.post("/users", async (request, response) => {
   }
 });
 
+router.post('/users/login', async (request, response) => {
+
+    try {
+        const user = await UserModel.findByCredentials(request.body.email, request.body.password);
+        console.log(user);
+        response.send(user);
+    } catch (error) {
+        response.status(500).send({error});
+    }
+
+});
+
 router.get("/users", async (request, response) => {
   try {
     const users = await UserModel.find({});
@@ -44,11 +56,9 @@ router.patch("/users/:id", async (request, response) => {
     return response.status(400).send({ message: "Mauvaise requête" });
 
   try {
-    const user = await UserModel.findByIdAndUpdate(
-      request.params.id,
-      request.body,
-      { new: true, runValidators: true }
-    );
+      const user = await UserModel.findById(request.params.id);
+      updateKeys.forEach((updateKey) => user[updateKey] = request.body[updateKey]);
+      await user.save();
     if (!user)
       return response.status(404).send({ message: "Utilisateur non trouvé" });
     response.status(200).send(user);
