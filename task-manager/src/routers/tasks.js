@@ -1,12 +1,18 @@
 const express = require("express");
 const router = new express.Router();
+const auth = require("../middleware/auth");
 const TaskModel = require("../schema/Task");
 
 //Routes Tasks
 
-router.post("/tasks", async (request, response) => {
+router.post("/tasks", auth, async (request, response) => {
   try {
-    const task = await new TaskModel(request.body);
+    // const task = await new TaskModel(request.body);
+    const task = await new TaskModel({
+      ...request.body,
+      owner: request.user._id,
+    });
+
     await task.save();
     response.status(201).send(task);
   } catch (error) {
@@ -14,18 +20,24 @@ router.post("/tasks", async (request, response) => {
   }
 });
 
-router.get("/tasks", async (request, response) => {
+router.get("/tasks", auth, async (request, response) => {
   try {
-    const tasks = await TaskModel.find({});
-    response.status(200).send(tasks);
+      //Filtre Simple
+    // const tasks = await TaskModel.find({owner: request.user._id});
+    //Filtre alternatif, avec populate()
+    await request.user.populate('tasks');
+
+
+    response.status(200).send(request.user.tasks);
   } catch (error) {
     response.status(404).send(error);
   }
 });
 
-router.get("/tasks/:id", async (request, response) => {
+router.get("/tasks/:id", auth, async (request, response) => {
   try {
-    const task = await TaskModel.findById(request.params.id);
+    const task = await TaskModel.findOne({_id : request.params.id, owner: request.user._id});
+
     if (!task)
       return response.status(404).send({ message: "Tâche non trouvée" });
     response.status(200).send(task);
@@ -45,14 +57,10 @@ router.patch("/tasks/:id", async (request, response) => {
     return response.status(400).send({ message: "Mauvaise requête" });
 
   try {
-
-    const task = await TaskModel.findById(request.params.id); 
-    updateKeys.forEach((updateKey) => task[updateKey] = request.body[updateKey]);
-    // const task = await TaskModel.findByIdAndUpdate(
-    //   request.params.id,
-    //   request.body,
-    //   { new: true, runValidators: true }
-    // );
+    const task = await TaskModel.findById(request.params.id);
+    updateKeys.forEach(
+      (updateKey) => (task[updateKey] = request.body[updateKey])
+    );
     if (!task)
       return response
         .status(404)

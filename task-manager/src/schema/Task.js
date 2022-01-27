@@ -1,3 +1,4 @@
+const { ObjectId } = require("bson");
 const mongoose = require("mongoose");
 
 const taskSchema = new mongoose.Schema({
@@ -10,6 +11,11 @@ const taskSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  owner: {
+      type: ObjectId,
+      required:true,
+      ref: 'User'
+  }
 });
 
 const TaskModel = mongoose.model("Task", taskSchema);

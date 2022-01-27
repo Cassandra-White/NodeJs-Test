@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require('bcrypt');
 const jwt = require ('jsonwebtoken');
+const TaskModel = require('./Task');
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -45,12 +46,28 @@ const userSchema = new mongoose.Schema({
 }]
 });
 
+userSchema.virtual('tasks', {
+  ref: 'Task',
+  localField: '_id',
+  foreignField: 'owner'
+});
+
 userSchema.methods.generateTokenAuth = async function(){
     const user = this;
     const token = jwt.sign({_id : user._id.toString()}, "JesuisUnphrasedeTokenisation"); 
     user.tokens = user.tokens.concat({ token });
     user.save();
     return token;
+}
+
+userSchema.methods.toJSON =  function () {
+    const user = this;
+    const userObject = user.toObject();
+
+    delete userObject.password;
+    delete userObject.tokens;
+
+    return userObject;
 }
 
 userSchema.statics.findByCredentials = async (email, password) => {
@@ -74,6 +91,12 @@ userSchema.pre('save', async function(next) {
     next();
 })
 
+//Supprimer les Tâches lorsqu'un utilisateur supprime ses données
+userSchema.pre('remove', async function(next){
+  const user = this;
+  await TaskModel.deleteMany({owner: user._id});
+  next();
+})
 
 
 
