@@ -2,6 +2,23 @@ const express = require("express");
 const router = new express.Router();
 const UserModel = require("../schema/User");
 const auth = require("../middleware/auth");
+const multer = require('multer');
+const sharp = require('sharp');
+
+const uploadAvatars = multer(
+    { 
+        limits:{
+            fileSize:1000000,
+        } ,
+        fileFilter(request, file, callback){
+            console.log(file.originalname.match(/\.(jpg|jpeg|png)$/))
+            if(!file.originalname.match(/\.(jpg|jpeg|png)$/)){
+                console.log(new Error('Uniquement .jpg/jpeg/png (Max 1Mo)'));
+                return callback({});
+            }
+            callback(undefined, true);
+        }
+})
 
 //Routes Users
 router.post("/users", async (request, response) => {
@@ -90,6 +107,42 @@ router.delete("/users/me", auth, async (request, response) => {
   } catch (error) {
     response.status(500).send({ error });
   }
+});
+
+router.post('/users/me/avatar',auth, uploadAvatars.single('avatar'), async (request, response) => {
+    const buffer = await sharp(request.file.buffer).resize({ width: 500, height: 500}).png().toBuffer();
+    request.user.avatar = buffer;
+    await request.user.save();
+    // console.log(request.file)
+    response.send('OK');
+}, (error, request, response, next) => {
+    response.status(401).send({message: error.message});
+});
+
+router.delete('/users/me/avatar',auth, async (request, response) => {
+    request.user.avatar = undefined;
+    await request.user.save();
+    if (request.user.avatar){
+        response.status(500).send({message : 'image non supprimé'})
+    }
+    response.send('OK');
+});
+
+router.get('/users/:id/avatar', async(request, response)=> {
+
+    try {
+        const user = await UserModel.findById(request.params.id);
+
+        console.log(user);
+        if(!user || !user.avatar)
+            return response.status(404).send({message: 'Non trouvé'});
+        response.set('Content-type', 'image/png');
+        response.status(200).send(user.avatar);
+        
+    } catch (error) {
+        response.status(500).send(error);
+    }
+
 });
 
 module.exports = router;

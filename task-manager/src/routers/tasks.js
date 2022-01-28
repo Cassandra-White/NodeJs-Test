@@ -20,12 +20,34 @@ router.post("/tasks", auth, async (request, response) => {
   }
 });
 
+//GET : /tasks?completed=true
+//GET : /tasks?limit=2&skip=2
+
 router.get("/tasks", auth, async (request, response) => {
-  try {
-      //Filtre Simple
-    // const tasks = await TaskModel.find({owner: request.user._id});
+    const match = {};
+    const sort = {};
+
+    if (request.query.completed){
+        match.completed = request.query.completed === 'true'
+    }
+
+    if(request.query.sortBy){
+        const parts = request.query.sortBy.split(':');
+        sort[parts[0]] = parts[1] === "desc" ? -1 : 1; 
+    }
+    try {
+    //Filtre Simple
+                    // const tasks = await TaskModel.find({owner: request.user._id});
     //Filtre alternatif, avec populate()
-    await request.user.populate('tasks');
+    await request.user.populate({
+        path: 'tasks',
+        match: match, 
+        options: {
+            limit: parseInt(request.query.limit),
+            skip: parseInt(request.query.skip),
+            sort: sort
+        }
+    });
 
 
     response.status(200).send(request.user.tasks);
