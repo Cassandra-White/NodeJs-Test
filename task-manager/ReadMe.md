@@ -24,29 +24,25 @@ Selon les actions de l'utilisateur, des mails automatique l'informeront des Cré
 
 - [Utilisation](#utilisation)
 
-    - [Requête Utilisateurs](#utilisateurs) 
+
+    #### Les requêtes Utilisateur:
+     - [Requete Création d'un compte](#créationinscription-dun-compte-)
+     - [Requete Connection](#loginconnection-à-un-compte-existant-)
+     - [Requete Déconnection](#logoutdéconnection-dun-compteappareil-connecté-)
+     - [Requete Déconnection de tous les appareils](#logoutdéconnection-de-tout-les-comptesappareils-connecté-)
+     - [Requete Afficher compte](#récupérations-des-données-de-lutilisateur-connecté-)
+     - [Requete Modifier compte](#patchmodification-des-données-de-lutilisateur-connecté-)
+     - [Requete Supprimer compte](#suppression-du-compte-utilisateur-connecté-)
+     - [Requete Ajouter un Avatar au compte](#ajouter-un-avatar-au-compte-utilisateur-connecté-)
+     - [Requete  Supprimer l'Avatar du compte](#supprimer-lavatar-du-compte-utilisateur-connecté-)
+     - [Requete Afficher l'Avatar d'un compte](#afficher-lavatar-dun-compte-utilisateur-)
     
-        Les requêtes :
-        - [Requete Création d'un compte](#créationinscription-dun-compte-)
-        - [Requete Connection](#loginconnection-à-un-compte-existant-)
-        - [Requete Déconnection](#logoutdéconnection-dun-compteappareil-connecté-)
-        - [Requete Déconnection de tous les appareils](#logoutdéconnection-de-tout-les-comptesappareils-connecté-)
-        - [Requete Afficher compte](#récupérations-des-données-de-lutilisateur-connecté-)
-        - [Requete Modifier compte](#patchmodification-des-données-de-lutilisateur-connecté-)
-        - [Requete Supprimer compte](#suppression-du-compte-utilisateur-connecté-)
-        - [Requete Ajouter un Avatar au compte](#ajouter-un-avatar-au-compte-utilisateur-connecté-)
-        - [Requete  Supprimer l'Avatar du compte](#supprimer-lavatar-du-compte-utilisateur-connecté-)
-        - [Requete Afficher l'Avatar d'un compte](#afficher-lavatar-dun-compte-utilisateur-)
-      
-    
-    - [Requête Tâches](#tâches) 
-    
-        Les requêtes :
-        - [Requete Création d'une Tâche](#création-dune-tâche-)
-        - [Requete Afficher toutes les Tâches d'un utilisateur](#afficherfiltrer-les-tâches-dun-utilisateur-connecté)
-        - [Requete Afficher une Tâche d'un utilisateur](#afficher-une-tâches-dun-utilisateur--connecté)
-        - [Requete Modifier une Tâche d'un utilisateur](#modifier-une-tâches-dun-utilisateur-connecté)
-        - [Requete Supprimer une Tâche d'un utilisateur](#supprimer-une-tâches-dun-utilisateur-connecté)
+   #### Les requêtes Tâche:
+     - [Requete Création d'une Tâche](#création-dune-tâche-)
+     - [Requete Afficher toutes les Tâches d'un utilisateur](#afficherfiltrer-les-tâches-dun-utilisateur-connecté)
+     - [Requete Afficher une Tâche d'un utilisateur](#afficher-une-tâches-dun-utilisateur--connecté)
+     - [Requete Modifier une Tâche d'un utilisateur](#modifier-une-tâches-dun-utilisateur-connecté)
+     - [Requete Supprimer une Tâche d'un utilisateur](#supprimer-une-tâches-dun-utilisateur-connecté)
 
 
 - [Screen](#screen)
