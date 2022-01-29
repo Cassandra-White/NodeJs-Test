@@ -19,6 +19,8 @@ Selon les actions de l'utilisateur, des mails automatique l'informeront des Cré
 
 [Déployer](#déployer)
 
+[Utilisation](#utilisation)
+
 
 ## Démo
 
@@ -85,5 +87,7 @@ Depuis la racine du repo :
 ```
 npm run start
 ```
+
+## Utilisation
 
 ## Screen
