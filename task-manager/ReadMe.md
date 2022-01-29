@@ -1,0 +1,89 @@
+# Task Manager API
+
+Task Manager API est une api qui permet de créer/lire/modifier/supprimer des listes de tâches.
+Elle inclu une incription/connection par addresse mail + mot de passe et un suivi des connections grâce à des tokens.
+
+Chaque connection sur un nouvelle appareil créer un nouveau token, ce qui permet la validité de ces tokens de façon différente celon les habitudes d'utilisation de chaque personnes.
+
+Selon les actions de l'utilisateur, des mails automatique l'informeront des Créations, Modification ou Suppressions sur son compte.
+
+##  Lien Rapide
+
+[Démo](#démo)
+
+[Dépendences](#dépendences)
+
+[Clone](#clone)
+
+[Installer](#installer)
+
+[Déployer](#déployer)
+
+
+## Démo
+
+###  API Démo
+
+Démo: [Link](https://task-manager-git.herokuapp.com)
+
+
+ ## VS Code 
+ 
+ Vous pouvez voir et tester le code sur [Visual Studio Code Online](https://github.dev/Cassandra-White/NodeJs-Test)
+
+## Dépendences
+
+    
+| Tools                      | Versions |
+| -------------------------  | -------- |
+| npm                        | 8.3.0    |
+| nodejs                     | 16.6.2   |
+| express                    | 4.17.2   |
+| @sendgrid/mail             | 7.6.0    |
+| bcrypt                     | 5.0.1    |
+| jsonwebtoken               | 8.5.1    |
+| mongodb                    | 4.3.1    |
+| mongoose                   | 6.1.8    |
+| multer                     | 1.4.4    |
+| sharp                      | 0.29.3   |
+| validator                  | 13.7.0   |
+
+
+
+## Clone
+
+```
+git clone git@github.com:Cassandra-White/NodeJs-Test.git
+```
+
+## Installer
+
+```
+cd task-manager/
+npm install
+```
+
+
+## Déployer
+
+Depuis la racine du repo : 
+  - Créer configurer une base de données sur [MongoDB](https://www.mongodb.com/)
+  - Créer et configurer un compte API sur [Sendgrid](https://sendgrid.com/)
+  - Créer un fichier .env
+  - Ajouter quatres variables d'environnement dans le fichier .env
+  
+  ```
+  exemple :
+  
+      PORT=3000
+      SINDGRID_KEY_API=votreCléApiSendgrid
+      AUTH_TOKEN=choisissezUnePhrasePourlaCréationDeVosToken
+      MONGODB_URL=mongodb://127.0.0.1:27017/task-manager-api(version local)
+   ```   
+      
+
+```
+npm run start
+```
+
+## Screen
