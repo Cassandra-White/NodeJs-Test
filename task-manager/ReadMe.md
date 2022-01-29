@@ -21,6 +21,8 @@ Selon les actions de l'utilisateur, des mails automatique l'informeront des Cré
 
 6. [Utilisation](#utilisation)
 
+    6.1. [Utilisateur](#utilisateur) 
+
 7. [Screen](#screen)
 
 
@@ -94,7 +96,7 @@ npm run start
 
 je recommande l'utilisation de [Postman](https://www.postman.com/) pour l'envoie et le test des requêtes.
 
- Utilisateur :
+ ### Utilisateur
  
  - Création/Inscription d'un compte :
  ```
@@ -108,6 +110,7 @@ je recommande l'utilisation de [Postman](https://www.postman.com/) pour l'envoie
 }
 action serveur : envoi d'un mail de d'information d'inscription.
  ```
+ ---
  
   - Login/Connection d'un compte :
   ```
@@ -119,6 +122,7 @@ action serveur : envoi d'un mail de d'information d'inscription.
 }
 action serveur : aucune
  ```
+ ---
  
    - Logout/Déconnection d'un compte/appareil :
   ```
@@ -129,6 +133,7 @@ action serveur : aucune
 }
 action serveur : aucune
  ```
+ ---
  
    - Logout/Déconnection de tout les comptes/appareils :
   ```
@@ -139,6 +144,7 @@ action serveur : aucune
 }
 action serveur : aucune
  ```
+ ---
  
    - Récupérations des données de l'utilisateur connecté :
   ```
@@ -149,6 +155,7 @@ action serveur : aucune
 }
 action serveur : aucune
  ```
+ ---
  
    - Patch/Modification des données de l'utilisateur connecté :
   ```
@@ -162,6 +169,7 @@ action serveur : aucune
 }
 action serveur : SI changment de Mot de passe - envoi d'un mail de confirmation d'information.
  ```  
+ ---
  
    - Suppression du compte l'utilisateur connecté :
   ```
