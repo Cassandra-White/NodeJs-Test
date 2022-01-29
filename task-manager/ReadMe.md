@@ -42,13 +42,12 @@ Selon les actions de l'utilisateur, des mails automatique l'informeront des Cré
     - [Requête Tâches](#tâches) 
     
         Les requêtes :
-        - [Requete Création d'un compte](#créationinscription-dun-compte-)
-        - [Requete Création d'un compte](#créationinscription-dun-compte-)
-        - [Requete Création d'un compte](#créationinscription-dun-compte-)
-        - [Requete Création d'un compte](#créationinscription-dun-compte-)
-        - [Requete Création d'un compte](#créationinscription-dun-compte-)
-        - [Requete Création d'un compte](#créationinscription-dun-compte-)
-    
+        - [Requete Création d'une Tâche](#création-dune-tâche-)
+        - [Requete Afficher toutes les Tâches d'un utilisateur](#afficherfiltrer-les-tâches-dun-utilisateur-connecté)
+        - [Requete Afficher une Tâche d'un utilisateur](#afficher-une-tâches-dun-utilisateur--connecté)
+        - [Requete Modifier une Tâche d'un utilisateur](#modifier-une-tâches-dun-utilisateur-connecté)
+        - [Requete Supprimer une Tâche d'un utilisateur](#supprimer-une-tâches-dun-utilisateur-connecté)
+
 
 - [Screen](#screen)
 
@@ -173,6 +172,7 @@ données renvoyé : {
     "password": "passwordExemple"
 }
 action serveur : aucune
+
 données renvoyé : {
     "user": {
         "name": string,
@@ -196,6 +196,7 @@ données renvoyé : {
    *nothing*
 }
 action serveur  : aucune
+
 données renvoyé : {
     "message": string,
 }
@@ -211,6 +212,7 @@ données renvoyé : {
    *nothing*
 }
 action serveur  : aucune
+
 données renvoyé : {
     "message": string,
 }
@@ -225,6 +227,7 @@ données renvoyé : {
    *nothing*
 }
 action serveur : aucune
+
 données renvoyé : {
     "_id": string,
     "name": string,
@@ -248,6 +251,7 @@ données renvoyé : {
     "age": uint (default : 0)
 }
 action serveur : SI changment de Mot de passe - envoi d'un mail de confirmation d'information.
+
 données renvoyé : {
     "_id": string,
     "name": string,
@@ -268,6 +272,7 @@ données renvoyé : {
  *nothing*
 }
 action serveur : Envoi d'un mail de confirmation de suppression.
+
 données renvoyé : {
     "message": string,
 } 
@@ -283,6 +288,7 @@ données renvoyé : {
     file: Image - JPG / JPEG / PNG
 }
 action serveur : aucune.
+
 données renvoyé : {
     "message": string,
 }
@@ -299,6 +305,7 @@ données renvoyé : {
  *nothing*
 }
 action serveur : aucune.
+
 données renvoyé : {
     "message": string,
 }
@@ -314,6 +321,7 @@ données renvoyé : {
  *nothing*
 }
 action serveur : aucune.
+
 données renvoyé : {
     image.png
 }
@@ -337,6 +345,7 @@ données renvoyé : {
 
 }
 action serveur : aucune.
+
 données renvoyé : {
     "description": string,
     "completed": booleen,
@@ -361,6 +370,7 @@ données renvoyé : {
     *nothing*
 }
 action serveur : aucune.
+
 données renvoyé : {
     "description": string,
     "completed": booleen,
@@ -381,6 +391,7 @@ données renvoyé : {
     *nothing*
 }
 action serveur : aucune.
+
 données renvoyé : {
     "description": string,
     "completed": booleen,
@@ -402,6 +413,7 @@ données renvoyé : {
     completed: booleen (modifier le status d'une tâche)
 }
 action serveur : aucune.
+
 données renvoyé : {
     "description": string,
     "completed": booleen,
@@ -422,6 +434,7 @@ données renvoyé : {
     *nothing*
 }
 action serveur : aucune.
+
 données renvoyé : {
     "message": string
 }
