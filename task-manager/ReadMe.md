@@ -28,15 +28,15 @@ Selon les actions de l'utilisateur, des mails automatique l'informeront des Cré
     
         Les requêtes :
         - [Requete Création d'un compte](#créationinscription-dun-compte-)
-        - [Requete Connection](#loginconnection-dun-compte-)
-        - [Requete Déconnection](#logoutdéconnection-dun-compteappareil-)
-        - [Requete Déconnection de tous les appareils](#logoutdéconnection-de-tout-les-comptesappareils-)
+        - [Requete Connection](#loginconnection-à-un-compte-existant-)
+        - [Requete Déconnection](#logoutdéconnection-dun-compteappareil-connecté-)
+        - [Requete Déconnection de tous les appareils](#logoutdéconnection-de-tout-les-comptesappareils-connecté-)
         - [Requete Afficher compte](#récupérations-des-données-de-lutilisateur-connecté-)
         - [Requete Modifier compte](#patchmodification-des-données-de-lutilisateur-connecté-)
-        - [Requete Supprimer compte](#suppression-du-compte-lutilisateur-connecté-)
-        - [Requete Création d'un compte](#créationinscription-dun-compte-)
-        - [Requete Création d'un compte](#créationinscription-dun-compte-)
-        - [Requete Création d'un compte](#créationinscription-dun-compte-)
+        - [Requete Supprimer compte](#suppression-du-compte-utilisateur-connecté-)
+        - [Requete Ajouter un Avatar au compte](#ajouter-un-avatar-au-compte-utilisateur-connecté-)
+        - [Requete  Supprimer l'Avatar du compte](#supprimer-lavatar-du-compte-utilisateur-connecté-)
+        - [Requete Afficher l'Avatar d'un](#afficher-lavatar-dun-compte-utilisateur-)
       
     
     - [Requête Tâches](#tâches) 
