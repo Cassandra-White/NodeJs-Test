@@ -23,7 +23,10 @@ Selon les actions de l'utilisateur, des mails automatique l'informeront des Cré
 
     6.1. [Utilisateurs](#utilisateurs) 
     
-    8.2. [Tâches](#tâches) 
+      6.1.1 [Requete Création d'un compte](#créationinscription-dun-compte-)
+    
+    6.2. [Tâches](#tâches) 
+    
 
 7. [Screen](#screen)
 
@@ -98,7 +101,7 @@ npm run start
 
 je recommande l'utilisation de [Postman](https://www.postman.com/) pour l'envoie et le test des requêtes.
 
- ### Utilisateurs:
+ ### Utilisateurs
  
  
  #### Création/Inscription d'un compte :
@@ -184,7 +187,7 @@ action serveur : SI changment de Mot de passe - envoi d'un mail de confirmation 
     "password": "passwordExemple",
     "age": uintNumberExemple
 }
-action serveur : SI changment de Mot de passe - envoi d'un mail de confirmation d'information.
+action serveur : Envoi d'un mail de confirmation de suppression.
  ```
  
  
