@@ -22,7 +22,8 @@ Selon les actions de l'utilisateur, des mails automatique l'informeront des Cré
 6. [Utilisation](#utilisation)
 
     6.1. [Utilisateurs](#utilisateurs) 
-    6.2. [Tâches](#taches) 
+    
+    8.2. [Tâches](#tâches) 
 
 7. [Screen](#screen)
 
@@ -97,7 +98,7 @@ npm run start
 
 je recommande l'utilisation de [Postman](https://www.postman.com/) pour l'envoie et le test des requêtes.
 
- ### Utilisateurs :
+ ### Utilisateurs:
  
  
  #### Création/Inscription d'un compte :
@@ -126,7 +127,7 @@ action serveur : aucune
  ```
  ---
  
-   - Logout/Déconnection d'un compte/appareil :
+   #### Logout/Déconnection d'un compte/appareil :
   ```
  type : POST 
  url  : /users/logout
@@ -188,6 +189,6 @@ action serveur : SI changment de Mot de passe - envoi d'un mail de confirmation 
  
  
  
- ### Tâches :
+ ### Tâches
 
 ## Screen
