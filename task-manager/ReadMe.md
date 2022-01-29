@@ -21,6 +21,8 @@ Selon les actions de l'utilisateur, des mails automatique l'informeront des Cré
 
 6. [Utilisation](#utilisation)
 
+7. [Screen](#screen)
+
 
 ## Démo
 
@@ -89,5 +91,93 @@ npm run start
 ```
 
 ## Utilisation
+
+je recommande l'utilisation de [Postman](https://www.postman.com/) pour l'envoie et le test des requêtes.
+
+ Utilisateur :
+ 
+ - Création/Inscription d'un compte :
+ ```
+ type : POST 
+ url  : /users 
+ JSON : {
+    "name": "userExemple",
+    "email": "mailexemple@domaineExemple.com",
+    "password": "passwordExemple",
+    "age": uintNumberExemple
+}
+action serveur : envoi d'un mail de d'information d'inscription.
+ ```
+ 
+  - Login/Connection d'un compte :
+  ```
+ type : POST 
+ url  : /users/login
+ JSON : {
+    "email": "mailexemple@domaineExemple.com",
+    "password": "passwordExemple"
+}
+action serveur : aucune
+ ```
+ 
+   - Logout/Déconnection d'un compte/appareil :
+  ```
+ type : POST 
+ url  : /users/logout
+ JSON : {
+   *nothing*
+}
+action serveur : aucune
+ ```
+ 
+   - Logout/Déconnection de tout les comptes/appareils :
+  ```
+ type : POST 
+ url  : /users/logoutall
+ JSON : {
+   *nothing*
+}
+action serveur : aucune
+ ```
+ 
+   - Récupérations des données de l'utilisateur connecté :
+  ```
+ type : GET 
+ url  : /users/me
+ JSON : {
+   *nothing*
+}
+action serveur : aucune
+ ```
+ 
+   - Patch/Modification des données de l'utilisateur connecté :
+  ```
+ type : PATCH 
+ url  : /users/me
+ JSON : {
+    "name": "userExemple",
+    "email": "mailexemple@domaineExemple.com",
+    "password": "passwordExemple",
+    "age": uintNumberExemple
+}
+action serveur : SI changment de Mot de passe - envoi d'un mail de confirmation d'information.
+ ```  
+ 
+   - Suppression du compte l'utilisateur connecté :
+  ```
+ type : PATCH 
+ url  : /users/me
+ JSON : {
+    "name": "userExemple",
+    "email": "mailexemple@domaineExemple.com",
+    "password": "passwordExemple",
+    "age": uintNumberExemple
+}
+action serveur : SI changment de Mot de passe - envoi d'un mail de confirmation d'information.
+ ```
+ 
+ 
+ 
+ Tâches :
 
 ## Screen
