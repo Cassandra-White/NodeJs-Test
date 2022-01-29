@@ -9,17 +9,17 @@ Selon les actions de l'utilisateur, des mails automatique l'informeront des Cré
 
 ##  Lien Rapide
 
-[Démo](#démo)
+1. [Démo](#démo)
 
-[Dépendences](#dépendences)
+2. [Dépendences](#dépendences)
 
-[Clone](#clone)
+3. [Clone](#clone)
 
-[Installer](#installer)
+4. [Installer](#installer)
 
-[Déployer](#déployer)
+5. [Déployer](#déployer)
 
-[Utilisation](#utilisation)
+6. [Utilisation](#utilisation)
 
 
 ## Démo
