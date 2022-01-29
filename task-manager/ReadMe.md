@@ -21,7 +21,8 @@ Selon les actions de l'utilisateur, des mails automatique l'informeront des Cré
 
 6. [Utilisation](#utilisation)
 
-    6.1. [Utilisateur](#utilisateur) 
+    6.1. [Utilisateurs](#utilisateurs) 
+    6.2. [Tâches](#taches) 
 
 7. [Screen](#screen)
 
@@ -96,9 +97,10 @@ npm run start
 
 je recommande l'utilisation de [Postman](https://www.postman.com/) pour l'envoie et le test des requêtes.
 
- ### Utilisateur
+ ### Utilisateurs :
  
- - Création/Inscription d'un compte :
+ 
+ #### Création/Inscription d'un compte :
  ```
  type : POST 
  url  : /users 
@@ -112,7 +114,7 @@ action serveur : envoi d'un mail de d'information d'inscription.
  ```
  ---
  
-  - Login/Connection d'un compte :
+  #### Login/Connection d'un compte :
   ```
  type : POST 
  url  : /users/login
@@ -135,7 +137,7 @@ action serveur : aucune
  ```
  ---
  
-   - Logout/Déconnection de tout les comptes/appareils :
+   #### Logout/Déconnection de tout les comptes/appareils :
   ```
  type : POST 
  url  : /users/logoutall
@@ -146,7 +148,7 @@ action serveur : aucune
  ```
  ---
  
-   - Récupérations des données de l'utilisateur connecté :
+   #### Récupérations des données de l'utilisateur connecté :
   ```
  type : GET 
  url  : /users/me
@@ -157,7 +159,7 @@ action serveur : aucune
  ```
  ---
  
-   - Patch/Modification des données de l'utilisateur connecté :
+   #### Patch/Modification des données de l'utilisateur connecté :
   ```
  type : PATCH 
  url  : /users/me
@@ -171,7 +173,7 @@ action serveur : SI changment de Mot de passe - envoi d'un mail de confirmation 
  ```  
  ---
  
-   - Suppression du compte l'utilisateur connecté :
+   #### Suppression du compte l'utilisateur connecté :
   ```
  type : PATCH 
  url  : /users/me
@@ -186,6 +188,6 @@ action serveur : SI changment de Mot de passe - envoi d'un mail de confirmation 
  
  
  
- Tâches :
+ ### Tâches :
 
 ## Screen
