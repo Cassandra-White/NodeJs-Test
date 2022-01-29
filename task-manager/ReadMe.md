@@ -121,9 +121,21 @@ npm run start
 
 ## Utilisation
 
+Lien de l'api : 
+
+                https://task-manager-git.herokuapp.com
+
 je recommande l'utilisation de [Postman](https://www.postman.com/) pour l'envoie et le test des requêtes.
 
+
+
  ### Utilisateurs
+ 
+ Vous trouverez ici les requêtes possible, les données attendu et les données renvoyé par l'api
+ Cette section est divisé en deux partie :
+ 
+ Uitlisateurs : Représente tout ce qui est en relation avec le compte de 'lutilisateur
+ Tâches : Représente tout ce qui est en relation avec les tâches créer par l'utilisateur.
  
  
  #### Création/Inscription d'un compte :
@@ -243,9 +255,14 @@ action serveur : aucune.
 }
 action serveur : aucune.
  ```
- 
+---
+---
+---
  
  
  ### Tâches
+ 
+ 
+ 
 
 ## Screen
