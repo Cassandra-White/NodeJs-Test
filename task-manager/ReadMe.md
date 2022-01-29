@@ -7,28 +7,50 @@ Chaque connection sur un nouvelle appareil créer un nouveau token, ce qui perme
 
 Selon les actions de l'utilisateur, des mails automatique l'informeront des Créations, Modification ou Suppressions sur son compte.
 
-##  Lien Rapide
+##  Sommaire :
 
-1. [Démo](#démo)
+### Comment installer l'API :
+- [Démo](#démo)
 
-2. [Dépendences](#dépendences)
+- [Dépendences](#dépendences)
 
-3. [Clone](#clone)
+- [Clone](#clone)
 
-4. [Installer](#installer)
+- [Installer](#installer)
 
-5. [Déployer](#déployer)
+- [Déployer](#déployer)
 
-6. [Utilisation](#utilisation)
+### Comment Utiliser l'API :
 
-    6.1. [Utilisateurs](#utilisateurs) 
+- [Utilisation](#utilisation)
+
+    - [Requête Utilisateurs](#utilisateurs) 
     
-      6.1.1 [Requete Création d'un compte](#créationinscription-dun-compte-)
+        Les requêtes :
+        - [Requete Création d'un compte](#créationinscription-dun-compte-)
+        - [Requete Connection](#loginconnection-dun-compte-)
+        - [Requete Déconnection](#logoutdéconnection-dun-compteappareil-)
+        - [Requete Déconnection de tous les appareils](#logoutdéconnection-de-tout-les-comptesappareils-)
+        - [Requete Afficher compte](#récupérations-des-données-de-lutilisateur-connecté-)
+        - [Requete Modifier compte](#patchmodification-des-données-de-lutilisateur-connecté-)
+        - [Requete Supprimer compte](#suppression-du-compte-lutilisateur-connecté-)
+        - [Requete Création d'un compte](#créationinscription-dun-compte-)
+        - [Requete Création d'un compte](#créationinscription-dun-compte-)
+        - [Requete Création d'un compte](#créationinscription-dun-compte-)
+      
     
-    6.2. [Tâches](#tâches) 
+    - [Requête Tâches](#tâches) 
+    
+        Les requêtes :
+        - [Requete Création d'un compte](#créationinscription-dun-compte-)
+        - [Requete Création d'un compte](#créationinscription-dun-compte-)
+        - [Requete Création d'un compte](#créationinscription-dun-compte-)
+        - [Requete Création d'un compte](#créationinscription-dun-compte-)
+        - [Requete Création d'un compte](#créationinscription-dun-compte-)
+        - [Requete Création d'un compte](#créationinscription-dun-compte-)
     
 
-7. [Screen](#screen)
+- [Screen](#screen)
 
 
 ## Démo
@@ -118,7 +140,7 @@ action serveur : envoi d'un mail de d'information d'inscription.
  ```
  ---
  
-  #### Login/Connection d'un compte :
+  #### Login/Connection à un compte existant :
   ```
  type : POST 
  url  : /users/login
@@ -130,7 +152,7 @@ action serveur : aucune
  ```
  ---
  
-   #### Logout/Déconnection d'un compte/appareil :
+   #### Logout/Déconnection d'un compte/appareil connecté :
   ```
  type : POST 
  url  : /users/logout
@@ -141,7 +163,7 @@ action serveur : aucune
  ```
  ---
  
-   #### Logout/Déconnection de tout les comptes/appareils :
+   #### Logout/Déconnection de tout les comptes/appareils connecté :
   ```
  type : POST 
  url  : /users/logoutall
@@ -177,17 +199,49 @@ action serveur : SI changment de Mot de passe - envoi d'un mail de confirmation 
  ```  
  ---
  
-   #### Suppression du compte l'utilisateur connecté :
+   #### Suppression du compte utilisateur connecté :
   ```
- type : PATCH 
+ type : DELETE 
  url  : /users/me
  JSON : {
-    "name": "userExemple",
-    "email": "mailexemple@domaineExemple.com",
-    "password": "passwordExemple",
-    "age": uintNumberExemple
+ *nothing*
 }
 action serveur : Envoi d'un mail de confirmation de suppression.
+ ```
+  ---
+ 
+   #### Ajouter un avatar au compte utilisateur connecté :
+  ```
+ type : POST 
+ url  : /users/me/avatar
+ Form-data : {
+    file: Image - JPG / JPEG / PNG
+}
+action serveur : aucune.
+ ```
+ 
+   ---
+ 
+   #### Supprimer l'avatar du compte utilisateur connecté :
+  ```
+ type : DELETE 
+ url  : /users/me/avatar
+ JSON : {
+ *nothing*
+}
+action serveur : aucune.
+ ```
+ 
+---
+ 
+   #### Afficher l'avatar d'un compte utilisateur :
+  ```
+ type : GET 
+ url  : /users/:id/avatar
+ JSON : {
+ *nothing*
+}
+action serveur : aucune.
  ```
  
  
