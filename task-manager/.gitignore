@@ -1,0 +1,4 @@
+node_modules
+/note-app/node_modules
+/note-app/notes.json
+.env
