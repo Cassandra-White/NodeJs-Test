@@ -1,11 +1,12 @@
 const express = require("express");
 require("./src/database/mongoose");
+// require('dotenv').config()
 
 const usersRouter = require("./src/routers/users");
 const tasksRouter = require("./src/routers/tasks");
 
 //Server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 const app = express();
 app.use(express.json());
 

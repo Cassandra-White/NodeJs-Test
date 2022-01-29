@@ -4,6 +4,7 @@ const UserModel = require("../schema/User");
 const auth = require("../middleware/auth");
 const multer = require('multer');
 const sharp = require('sharp');
+const { sendEmailWelcome, sendEmailCancelation } = require('../email/account');
 
 const uploadAvatars = multer(
     { 
@@ -20,18 +21,20 @@ const uploadAvatars = multer(
         }
 })
 
-//Routes Users
+//Inscription
 router.post("/users", async (request, response) => {
   try {
     const user = new UserModel(request.body);
     await user.save();
     const token = await user.generateTokenAuth();
+    sendEmailWelcome(user.email, user.name);
     response.status(201).send({ user, token });
   } catch (error) {
     response.status(400).send(error);
   }
 });
 
+//Login
 router.post("/users/login", async (request, response) => {
   try {
     const user = await UserModel.findByCredentials(
@@ -45,6 +48,8 @@ router.post("/users/login", async (request, response) => {
   }
 });
 
+
+//Deconnection
 router.post("/users/logout", auth, async (request, response) => {
   try {
     request.user.tokens = request.user.tokens.filter((token) => {
@@ -57,6 +62,8 @@ router.post("/users/logout", auth, async (request, response) => {
   }
 });
 
+
+//Deconnection de tout les appareils
 router.post("/users/logoutall", auth, async (request, response) => {
   try {
     request.user.tokens = [];
@@ -67,6 +74,7 @@ router.post("/users/logoutall", auth, async (request, response) => {
   }
 });
 
+//Get information Utilisateur
 router.get("/users/me", auth, async (request, response) => {
   //  response.status(200).send(request.user);
 
@@ -77,6 +85,8 @@ router.get("/users/me", auth, async (request, response) => {
   }
 });
 
+
+//Update Profile
 router.patch("/users/me", auth, async (request, response) => {
   const updateKeys = Object.keys(request.body);
   const checkKeys = ["name", "email", "password", "age"];
@@ -98,9 +108,13 @@ router.patch("/users/me", auth, async (request, response) => {
   }
 });
 
+
+//Supprimer son compte
 router.delete("/users/me", auth, async (request, response) => {
   try {
     await request.user.remove();
+    console.log(request.user);
+    sendEmailCancelation(request.user.email, request.user.name);
     response
       .status(200)
       .send({ message: "Utilisateur supprimé", user: request.user });
@@ -109,6 +123,8 @@ router.delete("/users/me", auth, async (request, response) => {
   }
 });
 
+
+//Ajouter un Avatar
 router.post('/users/me/avatar',auth, uploadAvatars.single('avatar'), async (request, response) => {
     const buffer = await sharp(request.file.buffer).resize({ width: 500, height: 500}).png().toBuffer();
     request.user.avatar = buffer;
@@ -119,6 +135,8 @@ router.post('/users/me/avatar',auth, uploadAvatars.single('avatar'), async (requ
     response.status(401).send({message: error.message});
 });
 
+
+//Supprimer Avatar
 router.delete('/users/me/avatar',auth, async (request, response) => {
     request.user.avatar = undefined;
     await request.user.save();
@@ -128,6 +146,8 @@ router.delete('/users/me/avatar',auth, async (request, response) => {
     response.send('OK');
 });
 
+
+//Get Image Avatar
 router.get('/users/:id/avatar', async(request, response)=> {
 
     try {

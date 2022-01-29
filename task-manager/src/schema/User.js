@@ -3,6 +3,10 @@ const validator = require("validator");
 const bcrypt = require('bcrypt');
 const jwt = require ('jsonwebtoken');
 const TaskModel = require('./Task');
+const { sendEmailPasswordChange } = require('../email/account');
+
+// require('dotenv').config()
+const authToken = process.env.AUTH_TOKEN
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -62,7 +66,7 @@ userSchema.virtual('tasks', {
 
 userSchema.methods.generateTokenAuth = async function(){
     const user = this;
-    const token = jwt.sign({_id : user._id.toString()}, "JesuisUnphrasedeTokenisation"); 
+    const token = jwt.sign({_id : user._id.toString()}, authToken); 
     user.tokens = user.tokens.concat({ token });
     user.save();
     return token;
@@ -95,8 +99,10 @@ userSchema.statics.findByCredentials = async (email, password) => {
 
 userSchema.pre('save', async function(next) {
     const user = this;
-    if(user.isModified('password'))
-        user.password = await bcrypt.hashSync(user.password, 8); 
+    if(user.isModified('password')){
+        user.password = await bcrypt.hashSync(user.password, 8);
+        sendEmailPasswordChange(user.email, user.name);
+      } 
     next();
 })
 
