@@ -246,7 +246,7 @@ données renvoyé : {
     "password": "passwordExemple",
     "age": uint (default : 0)
 }
-action serveur : SI changment de Mot de passe - envoi d'un mail de confirmation d'information.
+action serveur : SI changment de Mot de passe - envoi d'un mail d'information de changement.
 
 données renvoyé : {
     "_id": string,
