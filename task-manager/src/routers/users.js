@@ -27,7 +27,7 @@ router.post("/users", async (request, response) => {
     const user = new UserModel(request.body);
     await user.save();
     const token = await user.generateTokenAuth();
-    sendEmailWelcome(user.email, user.name);
+    // sendEmailWelcome(user.email, user.name);
     response.status(201).send({ user, token });
   } catch (error) {
     response.status(400).send(error);
@@ -44,7 +44,7 @@ router.post("/users/login", async (request, response) => {
     const token = await user.generateTokenAuth();
     response.send({ user, token });
   } catch (error) {
-    response.status(500).send({ error });
+    response.status(400).send({ error });
   }
 });
 
@@ -114,7 +114,7 @@ router.delete("/users/me", auth, async (request, response) => {
   try {
     await request.user.remove();
     console.log(request.user);
-    sendEmailCancelation(request.user.email, request.user.name);
+    // sendEmailCancelation(request.user.email, request.user.name);
     response
       .status(200)
       .send({ message: "Utilisateur supprimé", user: request.user });

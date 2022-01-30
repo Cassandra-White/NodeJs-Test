@@ -12,18 +12,18 @@ const sendEmailWelcome = (userEmail, userName) => {
         to: userEmail, // Change to your recipient
         from: 'task.manager.git@gmail.com', // Change to your verified sender
         subject: `Bienvenue ${userName} sur l\'API Task-Manager !`,
-        text: `Bienvenue ${userName},  vous pourrez retrouver d\'autres projets sur mon Git : `,
-        html: '<a href="https://github.com/Cassandra-White" >Cassandra-White</a>',
+        text: `Bienvenue ${userName},  vous pourrez retrouver d\'autres projets sur mon Git : https://github.com/Cassandra-White`,
+        // html: '<a href="https://github.com/Cassandra-White" >Cassandra-White</a>',
       }
 
       sgMail
       .send(msg)
-      .then(() => {
-        console.log('Email sent')
-      })
-      .catch((error) => {
-        console.error(error)
-      })
+      // .then(() => {
+      //   console.log('Email sent')
+      // })
+      // .catch((error) => {
+      //   console.error(error)
+      // })
 
 
 }
@@ -33,18 +33,18 @@ const sendEmailCancelation = (userEmail, userName) => {
         to: userEmail, // Change to your recipient
         from: 'task.manager.git@gmail.com', // Change to your verified sender
         subject: `Merci ${userName} !`,
-        text: `Merci ${userName} d\'avoir testé l\'API, vous pourrez retrouver d\'autres projets sur mon Git : `,
-        html: '<a href="https://github.com/Cassandra-White" >Cassandra-White</a>',
+        text: `Merci ${userName} d\'avoir testé l\'API, vous pourrez retrouver d\'autres projets sur mon Git : https://github.com/Cassandra-White`,
+        // html: '<a href="https://github.com/Cassandra-White" >Cassandra-White</a>',
       }
 
       sgMail
       .send(msg)
-      .then(() => {
-        console.log('Email sent')
-      })
-      .catch((error) => {
-        console.error(error)
-      })
+      // .then(() => {
+      //   console.log('Email sent')
+      // })
+      // .catch((error) => {
+      //   console.error(error)
+      // })
 }
 
 
@@ -54,17 +54,17 @@ const sendEmailPasswordChange = (userEmail, userName) => {
         from: 'task.manager.git@gmail.com', // Change to your verified sender
         subject: `${userName} Changement de mot de passe !`,
         text: `Bonjour ${userName},Votre demande de changement de mot de passe à bien été effectué`,
-        html: '<a href="https://github.com/Cassandra-White" >Cassandra-White</a>',
+        // html: '<a href="https://github.com/Cassandra-White" >Cassandra-White</a>',
       }
 
       sgMail
       .send(msg)
-      .then(() => {
-        console.log('Email sent')
-      })
-      .catch((error) => {
-        console.error(error)
-      })
+      // .then(() => {
+      //   console.log('Email sent')
+      // })
+      // .catch((error) => {
+      //   console.error(error)
+      // })
 }
 
 // const msg = {

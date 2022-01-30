@@ -101,7 +101,7 @@ userSchema.pre('save', async function(next) {
     const user = this;
     if(user.isModified('password')){
         user.password = await bcrypt.hashSync(user.password, 8);
-        sendEmailPasswordChange(user.email, user.name);
+        // sendEmailPasswordChange(user.email, user.name);
       } 
     next();
 })
