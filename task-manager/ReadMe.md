@@ -3,7 +3,7 @@
 Task Manager API est une api qui permet de créer/lire/modifier/supprimer des listes de tâches.
 Elle inclu une incription/connection par addresse mail + mot de passe et un suivi des connections grâce à des tokens.
 
-Chaque connection sur un nouvelle appareil créer un nouveau token, ce qui permet la validité de ces tokens de façon différente celon les habitudes d'utilisation de chaque personnes.
+Chaque connection sur un nouvel appareil créer un nouveau token, ce qui permet la validité de ces tokens de façon différente en fonction des habitudes d'utilisation de chaque personnes.
 
 Selon les actions de l'utilisateur, des mails automatique l'informeront des Créations, Modification ou Suppressions sur son compte.
 
