@@ -129,8 +129,8 @@ je recommande l'utilisation de [Postman](https://www.postman.com/) pour l'envoie
  Vous trouverez ici les requêtes possible, les données attendu et les données renvoyé par l'api
  Cette section est divisé en deux partie :
  
- Uitlisateurs : Représente tout ce qui est en relation avec le compte de 'lutilisateur
- Tâches : Représente tout ce qui est en relation avec les tâches créer par l'utilisateur.
+ - Utilisateurs : Représente tout ce qui est en relation avec le compte de 'lutilisateur
+ - Tâches : Représente tout ce qui est en relation avec les tâches créer par l'utilisateur.
  
  
  #### Création/Inscription d'un compte :
