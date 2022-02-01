@@ -24,5 +24,7 @@ NodeJs-Test sert de zone de test pour des applications et recherche sur NodeJs
 
      Selon les actions de l'utilisateur, des mails automatique l'informeront des Créations, Modification ou Suppressions sur son compte.
 
-
- 
+- 4 : [Chat App](https://github.com/Cassandra-White/NodeJs-Test/tree/main/chat-app) :
+      Chat app est une application web de chat porté par socket.io
+      ![chat](https://github.com/Cassandra-White/NodeJs-Test/blob/main/chat-app/hub.png?raw=true)
+      
