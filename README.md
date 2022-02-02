@@ -1,6 +1,6 @@
 # NodeJs-Test
 
-NodeJs-Test est ensemble de plusieurs applications ou programmes d'exemple en nodejs
+NodeJs-Test est ensemble de plusieurs applications et programmes d'exemple en nodejs
 
 ## que vais-je trouver ?
 
