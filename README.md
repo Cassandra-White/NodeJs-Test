@@ -1,6 +1,6 @@
 # NodeJs-Test
 
-NodeJs-Test sert de zone de test pour des applications et recherche sur NodeJs
+NodeJs-Test est ensemble de plusieur application ou programme d'exemple en nodejs
 
 ## que vais-je trouver ?
 
